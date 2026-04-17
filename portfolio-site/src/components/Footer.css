@@ -1,0 +1,14 @@
+.container{max-width:1000px;margin:0 auto;padding:24px 16px;display:flex;justify-content:space-between;align-items:center}
+.socials a{margin-left:12px;color:var(--muted)}
+
+/* Solid maroon footer - apply to actual <footer> element */
+footer{background:#6b0b0b;color:#ffffff}
+footer .container{padding:20px 16px}
+footer a{color:rgba(255,255,255,0.9)}
+.footer{background:#6b0b0b;color:#ffffff}
+.footer .container{padding:20px 16px}
+.footer a{color:rgba(255,255,255,0.9)}
+/* style for inline social svg */
+.socials .social-link{display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.95);text-decoration:none}
+.socials .social-link img{display:block;vertical-align:middle;filter:invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg);}
+.socials .social-link:hover img{filter:brightness(1.2) invert(100%)}

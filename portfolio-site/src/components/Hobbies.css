@@ -1,0 +1,114 @@
+.hobby-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:12px}
+.hobby-card{background:transparent;padding:12px;border-radius:8px;display:flex;flex-direction:column;align-items:flex-start;border:none;transition:transform .25s,box-shadow .25s}
+.hobby-card h4{margin:8px 0 4px}
+.hobby-card .muted{color:var(--muted)}
+.hobby-card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+@media(min-width:720px){.hobby-grid{grid-template-columns:1fr 1fr}}
+.hobbies-layout{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;margin-top:12px}
+.top-desc{display:flex;gap:16px;align-items:flex-start}
+.small-pic{width:160px;height:160px;object-fit:cover;border-radius:8px}
+.desc-text{color:var(--muted);line-height:1.6}
+.photos-row{display:flex;gap:8px;margin-top:6px;align-items:flex-start;position:relative}
+.hobby-card{background:transparent;padding:8px;border-radius:8px;display:flex;flex-direction:column;align-items:flex-start}
+.hobby-card h4{margin:8px 0 4px}
+.hobby-card .muted{color:var(--muted)}
+.hobby-card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+.hobby-card.portrait img{height:300px;width:auto;max-width:220px;object-fit:cover;border-radius:8px}
+
+.hobby-card.portrait{position:relative}
+.portrait-media{height:300px;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;border-radius:8px;width:220px}
+.portrait-media img{height:100%;width:auto;object-fit:cover;display:block}
+.hobby-card.portrait .portrait-overlay{position:static;margin-top:8px;background:transparent;padding:0;border-radius:0;max-width:100%;color:var(--muted);box-shadow:none;text-align:left}
+.hobby-card.portrait .portrait-overlay h4{margin:0 0 6px;color:inherit}
+.hobby-card.portrait .portrait-overlay .muted{color:rgba(255,255,255,0.88)}
+
+@media(max-width:860px){
+	.hobby-card.portrait .portrait-overlay{position:static;transform:none;background:transparent;padding:0;box-shadow:none;color:var(--muted);max-width:100%;margin-top:8px}
+}
+.hobby-card.shuffler{cursor:pointer;margin-left:0;position:relative;height:auto;display:flex;flex-direction:column;align-items:center}
+.shuffler-media{height:300px;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;border-radius:8px;flex:0 0 520px;width:520px;max-width:100%}
+.shuffler-media img{height:300px;width:auto;object-fit:cover;display:block;transition:transform .28s ease, box-shadow .28s ease, filter .28s ease}
+
+/* make the media container transformable (we rotate/lift the whole card) */
+.shuffler-media{position:relative;z-index:3;transition:transform .28s ease, box-shadow .28s ease}
+
+/* Hover: rotate/lift the whole shuffler for a stacked-card look; image itself scales */
+.hobby-card.shuffler:hover .shuffler-media{transform:translateY(-8px) rotate(4deg);box-shadow:0 24px 48px rgba(0,0,0,0.36)}
+.hobby-card.shuffler:hover .shuffler-media img{transform:scale(1.03);filter:brightness(1.03)}
+.hobby-card.shuffler .shuffler-overlay{position:static;margin-top:8px;background:transparent;padding:0;border-radius:0;width:220px;max-width:100%;color:var(--muted);box-shadow:none;text-align:left}
+.hobby-card.shuffler .shuffler-overlay h4{margin:0 0 6px}
+.hobby-card.shuffler .shuffler-overlay .muted{color:rgba(255,255,255,0.88)}
+
+/* Stacked card visual for shuffler: two subtle layers behind the main image */
+.hobby-card.shuffler{position:relative}
+.hobby-card.shuffler::before,
+.hobby-card.shuffler::after{
+	content:"";
+	position:absolute;
+	left:0;right:0;margin:0 auto;
+	width:520px;
+	height:300px;
+	border-radius:8px;
+	background:rgba(0,0,0,0.12);
+	box-shadow:0 10px 24px rgba(0,0,0,0.22);
+	z-index:1;
+	transition:transform .25s ease, opacity .25s ease;
+}
+.hobby-card.shuffler::before{transform:translateY(14px) rotate(-2deg);opacity:0.7}
+.hobby-card.shuffler::after{transform:translateY(7px) rotate(-1deg);opacity:0.5}
+.shuffler-media{position:relative;z-index:3}
+.hobby-card.shuffler:hover::before{transform:translateY(18px) rotate(-3deg)}
+.hobby-card.shuffler:hover::after{transform:translateY(9px) rotate(-1.5deg)}
+
+@media(min-width:860px){
+	/* keep caption below on wide screens but fixed width so it won't move */
+	.hobby-card.shuffler{flex-direction:column;align-items:center}
+	.shuffler-media{flex:0 0 520px;height:300px}
+	.hobby-card.shuffler .shuffler-overlay{width:220px;margin-top:8px;margin-left:0;text-align:left}
+
+	/* align shuffler caption left edge with portrait caption left edge */
+	.hobby-card.shuffler .shuffler-overlay.align-left{
+		width:220px;
+		margin-top:8px;
+		margin-left:0;
+		text-align:left;
+	}
+  .portrait-media{height:300px;width:220px}
+}
+
+
+
+@media(max-width:860px){
+	.shuffler-media{height:220px;width:100%}
+	.shuffler-media img{height:220px;width:auto}
+
+	.hobby-card.shuffler::before,
+	.hobby-card.shuffler::after{
+		width:calc(100% - 0px);
+		height:220px;
+		left:0;right:0;margin:0 auto;
+	}
+	.hobby-card.shuffler::before{transform:translateY(10px) rotate(-1deg)}
+	.hobby-card.shuffler::after{transform:translateY(5px) rotate(-0.5deg)}
+	.portrait-media{height:220px;width:100%}
+	.hobby-card.shuffler .shuffler-overlay{width:100%;margin-top:8px;margin-left:0;text-align:left}
+	/* mobile: stack media and caption, both media heights match */
+}
+
+.hobby-card{perspective:900px}
+.img-responsive{backface-visibility:hidden;transform-style:preserve-3d;transition:transform .42s ease-in-out}
+.img-responsive.shuffling{animation:cardFlip .42s ease-in-out}
+
+@keyframes cardFlip{
+	0%{transform:rotateY(0)}
+	50%{transform:rotateY(90deg);opacity:0}
+	100%{transform:rotateY(0);opacity:1}
+}
+
+@media(min-width:860px){
+	.hobbies-layout{grid-template-columns:1fr}
+	.photos-row .hobby-card{width:auto}
+	.hobby-card.shuffler{margin-left:auto}
+	.small-pic{width:200px;height:200px}
+	.hobby-card.shuffler .shuffler-media img{height:300px;width:auto;object-fit:cover}
+}

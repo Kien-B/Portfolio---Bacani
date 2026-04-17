@@ -1,0 +1,10 @@
+.container{max-width:1000px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.nav-links{list-style:none;display:flex;gap:14px;margin:0;padding:0}
+.nav-links a{padding:8px 10px;border-radius:6px;color:var(--muted);transition:background .18s, color .18s}
+.nav-links a:hover{background:rgba(255,255,255,0.02);color:var(--text)}
+.nav-links a.active{background:linear-gradient(90deg,var(--accent),#7a2f2f);color:#041024;font-weight:600}
+.brand{font-weight:700;color:var(--accent)}
+
+@media(max-width:640px){
+  .nav-links{display:none}
+}

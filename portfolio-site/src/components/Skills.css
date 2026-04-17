@@ -1,0 +1,15 @@
+.section-card h3{margin:8px 0}
+.section-card ul{margin:8px 0 0 18px;color:var(--muted)}
+
+/* logo grid */
+.logo-section{margin-top:18px}
+.logo-grid{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
+.logo-wrap{width:88px;height:88px;border-radius:12px;background:transparent;display:flex;align-items:center;justify-content:center;transition:transform .25s ease,box-shadow .25s;border:none}
+.tech-logo{width:56px;height:56px;transition:transform .35s ease}
+.logo-wrap:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 10px 28px rgba(124,92,255,0.14)}
+
+/* gentle floating animation */
+.logo-wrap{animation:float 4.5s ease-in-out infinite}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+@media(max-width:480px){.logo-wrap{width:72px;height:72px}.tech-logo{width:44px;height:44px}}
